@@ -1,6 +1,6 @@
 import { Connection, PublicKey, clusterApiUrl } from "@solana/web3.js";
 import { Program, Provider, web3 } from "@project-serum/anchor";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 import twitterLogo from './assets/twitter-logo.svg';
 import './App.css';
@@ -154,7 +154,7 @@ const App = () => {
     }
   }
 
-  const getGifList = async () => {
+  const getGifList = useCallback(async () => {
     try {
       const provider = getProvider();
       const program = new Program(idl, programID, provider);
@@ -167,7 +167,7 @@ const App = () => {
       console.log("Error in getGifList: ", error)
       setGifList(null);
     }
-  }
+  }, [setGifList])
 
   const createGifAccount = async () => {
     try {
