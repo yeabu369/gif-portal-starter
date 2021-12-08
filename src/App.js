@@ -12,7 +12,7 @@ import kp from './keypair.json';
 const TWITTER_HANDLE = '_buildspace';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
-const { SystemProgram, Keypair } = web3;
+const { SystemProgram } = web3;
 
 const arr = Object.values(kp._keypair.secretKey)
 const secret = new Uint8Array(arr)
@@ -145,7 +145,7 @@ const App = () => {
             {/* We use index as the key instead, also, the src is now item.gifLink */}
             {gifList.map((item, index) => (
               <div className="gif-item" key={index}>
-                <img src={item.gifLink} />
+                <img src={item.gifLink} alt="gif" />
               </div>
             ))}
           </div>
