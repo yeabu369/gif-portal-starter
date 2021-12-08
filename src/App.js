@@ -205,7 +205,7 @@ const App = () => {
       console.log('Fetching GIF list...');
       getGifList()
     }
-  }, [walletAddress]);
+  }, [walletAddress, getGifList]);
 
 
   return (
